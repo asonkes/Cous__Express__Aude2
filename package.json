@@ -1,0 +1,16 @@
+{
+  "name": "cous__express__aude2",
+  "version": "1.0.0",
+  "description": "Une API c'est un serveur qui va recevoir une \"requête\", la traiter, potentiellement se \"connecter\" à des données et renvoyer une \"réponse\" qui possèdera un statut (httpCode) ==> (ex : 200, 201, 400, 500) et potentiellement des données renvoyées (json ou XML).",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --env-file=.env app.js",
+    "dev": "node --watch --env-file=.env app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
