@@ -5,6 +5,9 @@ const server = express(); // Création du serveur express
 // ? Récupération des variables d'environnement:
 const { PORT } = process.env;
 
+// Pour pouvoir recevoir du json
+server.use(express.json());
+
 // ! 2) Traiter les requêtes
 // Indiquer à notre app que le routing se trouve dans le dossier "routes"
 const router = require("./routes"); // Import de l'objet routeur présent dans index.js

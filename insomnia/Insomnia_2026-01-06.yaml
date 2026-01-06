@@ -1,0 +1,174 @@
+type: spec.insomnia.rest/5.0
+schema_version: "5.1"
+name: Demo_Express
+meta:
+  id: wrk_ce74c4b8ac6146dab844398f4ccf8994
+  created: 1767695971955
+  modified: 1767696072633
+  description: ""
+collection:
+  - name: Tasks
+    meta:
+      id: fld_e1e399af3c0a416cb802b6d322a0c646
+      created: 1767696258443
+      modified: 1767696258443
+      sortKey: -1767696258443
+      description: ""
+    children:
+      - url: http://localhost:3000/api/tasks
+        name: GetAll
+        meta:
+          id: req_c2e455470d574ef9aa4f1ccb1a6d8b1e
+          created: 1767696301794
+          modified: 1767696858157
+          isPrivate: false
+          description: ""
+          sortKey: -1767696301794
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/tasks/42
+        name: GetById
+        meta:
+          id: req_3cdc19779e8046e6a1503431cbaa1835
+          created: 1767696853454
+          modified: 1767696901972
+          isPrivate: false
+          description: ""
+          sortKey: -1767696301694
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/tasks
+        name: Insert
+        meta:
+          id: req_cabd41460349483e9cfa8ee41bb149d7
+          created: 1767702200424
+          modified: 1767703847859
+          isPrivate: false
+          description: ""
+          sortKey: -1767696301594
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Aller chercher Titi à l'école",
+            	"category": "Tiphaine",
+            	"by": "Audrey",
+            	"for": "Audrey",
+            	"isDone": false
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/tasks/42
+        name: Update
+        meta:
+          id: req_eccf7773c15e40e9a72e32d59ffb11e5
+          created: 1767704175127
+          modified: 1767704366026
+          isPrivate: false
+          description: ""
+          sortKey: -1767696301494
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name": "Aller chercher Titi à l'école",
+            	"category": "Tiphaine",
+            	"by": "Audrey",
+            	"for": "JeanLuc",
+            	"isDone": false
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/tasks/42
+        name: Delete
+        meta:
+          id: req_4c0837a4c7334a6d8ec4dff73206c635
+          created: 1767705062436
+          modified: 1767705176801
+          isPrivate: false
+          description: ""
+          sortKey: -1767696301394
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.2.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_cb13441ec9babf5bccba0431ae7a0751535a90fa
+    created: 1767695971960
+    modified: 1767695971960
+environments:
+  name: Base Environment
+  meta:
+    id: env_cb13441ec9babf5bccba0431ae7a0751535a90fa
+    created: 1767695971959
+    modified: 1767695971959
+    isPrivate: false
+spec:
+  meta:
+    id: spc_adc0800f146a4b17a442b4b458e4dff7
+    created: 1767695971957
+    modified: 1767696072630
