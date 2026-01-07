@@ -222,4 +222,8 @@ Pour pouvoir tester toutes nos routes d'API, nous avons plusieurs outils à disp
 2. [Insomnia] (https://insomnia.rest)
 3. [Thunder Client] ==> extension Visual Studio Code ===> pas bon !!!
 
-# Insomnia (ou utilisera celui-là dans le cours ==> refaire exo à la maison avec Postman)
+# Insomnia (ou utilisera celui-là dans le cours ==> refaire exo à la maison avec Postman) ==> fait !!!
+
+---
+
+## Cours du 07-01-2026
