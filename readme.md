@@ -227,3 +227,127 @@ Pour pouvoir tester toutes nos routes d'API, nous avons plusieurs outils à disp
 ---
 
 ## Cours du 07-01-2026
+
+# Les controlleurs
+
+Les controlleurs sont les endroits où on va gérer la requête(ce qui rentre req et ce qui sort res).
+En général, on fait un controlleur par type de ressource.
+
+Un controlleur est un objet qui contient des fonctions.
+Chaque fonction reprsentera une action que l'on eut faire sur la ressource.
+
+- **Ex code :**
+
+  > On va faire autant de fois des 'fonctions' qu'il y a de tâches
+  > Code :
+
+  const taskController = {
+  getAll: (req, res) => {},
+
+  getById: (req, res) => {},
+
+  getByUser: (req, res) => {},
+
+  insert: (req, res) => {},
+
+  update: (req, res) => {},
+
+  updateStatus: (req, res) => {},
+
+  delete: (req, res) => {},
+  };
+
+> Il ne nous reste plus qu'à relier la **route** avec sa fonctionnalité !!!
+
+- **Code:**
+
+1. On importe le controller
+   Ex :
+   const taskController = require("../controllers/task.controller");
+   const taskController = require("../controllers/task.controller");
+
+   /\*_ Exemple d'une autre façon d'écrire les 'routes' _/
+   const taskRouter = require("express").Router();
+
+   taskRouter.route("/").get(taskController.getAll).post(taskController.insert);
+
+   taskRouter
+   .route("/:id")
+   .get(taskController.getById)
+
+   /** Modification, on renvoie la chose qui a été créé ==> donc 200 \*/
+   .put(taskController.update)
+   .delete(taskController.delete)
+   /** Ici, on veut changer 'isDone' \*/
+   .patch(taskController.updateStatus);
+
+   /\*_ Ca c'est pour trouver toutes les tâches d'un utilisateur _/
+   taskRouter.get("/user/:name", (req, res) => {
+   res.send(`Voici les tâches de ${req.params.name}`, 200);
+   });
+
+   module.exports = taskRouter;
+
+- **Par contre dans le taskController**
+
+  > On met une un 'status 501', la route existe bien mais le code derrière n'a pas été implanté ou développé :
+  > Code :
+
+  const taskController = {
+  getAll: (req, res) => {
+  res.sendStatus(501);
+  },
+
+  getById: (req, res) => {
+  res.sendStatus(501);
+  },
+
+  getByUser: (req, res) => {
+  res.sendStatus(501);
+  },
+
+  insert: (req, res) => {
+  res.sendStatus(501);
+  },
+
+  update: (req, res) => {
+  res.sendStatus(501);
+  },
+
+  updateStatus: (req, res) => {
+  res.sendStatus(501);
+  },
+
+  delete: (req, res) => {
+  res.sendStatus(501);
+  },
+  };
+
+module.exports = taskController;
+
+---
+
+- **Les DTO**
+  > Les DTOs(Data Transfert Object) se sont des représentations des objets.
+  > Telles qu'elles entrent ou sortent des API.
+  > Parfois à l'insertion, l'objet n'est pas identique à celui en db, donc on aura besoin d'un DTO d'entrée.
+  > Parfois les objets renvoyés par l'API auront besoin d'avoir des données supprimées ou ajoutées, on fera donc un DTO pour ça.
+
+* **Les services**
+
+  > C'est l'endroit où on va gérer les accès aux données et la logique propre à la recherche / création / modification / suppression de ces données.
+  > Nos contrôleurs vont appeler les bonnes méthodes dans les services appropriés.
+  > En général, on fait un service par type de ressource.
+
+* **Dans un 1er temps**
+  > On va travailler avec une simulation de base de données (fakeDB) avec de simples tableaux d'objets js.
+
+> [!warning]
+> Nos tableaux ne seront pas sauvegardés et seront remis à 0 à chaque lancement du serveur donc à chaque modification.
+
+> [!important]
+> Plus tard, nous verrons comment [ se connecter à une base de donnéés]
+
+> [!note]
+> Certaines données devront être cryptées dans la base de données (c'est notamment le cas des mots de passe) pour qu'elles ne soient pas lisibles à l'oeil nu.
+> [Nous le feront dans les services]

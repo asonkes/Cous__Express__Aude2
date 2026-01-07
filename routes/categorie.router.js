@@ -1,35 +1,19 @@
-const categoryRouter = require("express").Router();
+const categorieController = require("../controllers/categorie.controller");
+
+const categorieRouter = require("express").Router();
 
 /** On veut aller chercher toute sles catégories */
-categoryRouter.get("/", (req, res) => {
-  res.send("Bienvenue sur la page des catégories", 200);
-});
+categorieRouter
+  .route("/")
+  .get(categorieController.getAll)
+  .post(categorieController.insert);
 
 /** On veut aller chercher une catégorie précise */
-categoryRouter.get("/:id", (req, res) => {
-  const id = req.params.id;
-  res.send(`Bienvenue sur la page de la catégorie ${id}`, 200);
-});
+categorieRouter
+  .route("/:id")
+  .get(categorieController.getById)
+  .put(categorieController.update)
+  .delete(categorieController.delete);
 
-/** On veut poster/ajouter une catégorie */
-categoryRouter.post("/", (req, res) => {
-  const categoryToInsert = req.body;
-  res.send(categoryToInsert, 201);
-});
-
-/** On veut modifier une catégorie */
-categoryRouter.put("/:id", (req, res) => {
-  const categoryId = req.params.id;
-  const categoryUpdated = req.body;
-
-  categoryUpdated.id = categoryId;
-
-  res.send(categoryUpdated, 200);
-});
-
-/** On veut supprimer une catégorie */
-categoryRouter.delete("/:id", (req, res) => {
-  res.sendStatus(204);
-});
-
-module.exports = categoryRouter;
+/** Avait oublié de le mettre donc il n'était pas importé ==> donc fonctionnait pas */
+module.exports = categorieRouter;
